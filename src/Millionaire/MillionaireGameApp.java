@@ -43,38 +43,28 @@ public class MillionaireGameApp {
 
                     // Play round 1
                     Round round1 = newGame.newRound();
+                    if (gameDifficulty == EASY_MODE) {
+                        Round.setDifficulty(EASY_MODE);
+                    } else {
+                        Round.setDifficulty(HARD_MODE);
+                    }
                     boolean roundOneResult = roundOneTwo(newGame, round1, newPlayer);
                     if (roundOneResult) {
-                        valid = true;
+                        break;
                     }
-//                    boolean round1Result = newGame.playRound(round1);
-//                    if (round1Result) {
-//                        System.out.println("Congratulations! You passed round " + round1.getRoundNumber() + "! Your current winnings are at $" + newPlayer.getTotalWinnings());
-//                    } else {
-//                        System.out.println("Thanks for playing!");
-//                        valid = true;
-//                    }
-//
-//                    // Ask player if they want to walk away
-//                    boolean walkAway1 = round1.walkAway();
-//                    if (walkAway1) {
-//                        // Player agrees to walk away
-//                        System.out.println("Thanks for playing!");
-//                        valid = true;
-//                    }
 
                     // Player does not walk away. Play round 2
                     Round round2 = newGame.newRound();
                     boolean roundTwoResult = roundOneTwo(newGame, round2, newPlayer);
                     if (roundTwoResult) {
-                        valid = true;
+                        break;
                     }
 
                     // Player does not walk away. Play round 3
                     Round round3 = newGame.newRound();
                     boolean roundThreeResult = roundThree(newGame, round3, newPlayer);
                     if (roundThreeResult) {
-                        valid = true;
+                        break;
                     }
 
                     valid = true;

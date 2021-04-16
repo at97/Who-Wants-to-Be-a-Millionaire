@@ -54,6 +54,7 @@ public class Game {
 
     public boolean playRound(Round round) {
         int limit;
+        int finalAnswer = 0;
         if (round instanceof EasyRound) {
             limit = EasyRound.getNumQuestions();
         } else {
@@ -62,10 +63,21 @@ public class Game {
         System.out.println("----------Beginning Round " + round.getRoundNumber() + "----------");
         for (int i = 0; i < limit; i++) {
             round.showQuestion(i);
+            if (round.checkLifelineEligibility()) {
+                System.out.println("You have lifelines available. Please select one of the options above or enter 'l' to choose a lifeline.");
+            }
             // Obtain answer from user
             char answer = round.getAnswer();
-            // Ask user if it's their final answer
-            int finalAnswer = round.finalAnswer(answer);
+            if (answer == 'l') {
+                round.offerLifeline(round.getQuestions().get(i));
+                round.selectLifeline(round.getQuestions().get(i), i);
+                round.showQuestion(i);
+                answer = round.getAnswer();
+                finalAnswer = round.finalAnswer(answer);
+            } else {
+                // Ask user if it's their final answer
+                finalAnswer = round.finalAnswer(answer);
+            }
             boolean result = round.checkAnswer(round.getQuestions().get(i), finalAnswer);
             if (result) {
                 System.out.println("Correct!");
