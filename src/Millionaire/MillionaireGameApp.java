@@ -35,24 +35,55 @@ public class MillionaireGameApp {
                     int gameDifficulty = gameDifficulty();
 
                     // Create question bank
-                    QuestionBank questionBank = new QuestionBank();
-                    questionBank.readFile("questions.txt");
+                    QuestionBank questionBankObj = new QuestionBank();
+                    ArrayList<Question> questionBank = questionBankObj.readFile("questions.txt");
 
-                    // Create game
+                    // Create game + round 1
                     Game newGame = new Game(newPlayer, gameDifficulty, questionBank);
-                    newGame.newRound();
 
+                    // Play round 1
+                    Round round1 = newGame.newRound();
+                    boolean roundOneResult = roundOneTwo(newGame, round1, newPlayer);
+                    if (roundOneResult) {
+                        valid = true;
+                    }
+//                    boolean round1Result = newGame.playRound(round1);
+//                    if (round1Result) {
+//                        System.out.println("Congratulations! You passed round " + round1.getRoundNumber() + "! Your current winnings are at $" + newPlayer.getTotalWinnings());
+//                    } else {
+//                        System.out.println("Thanks for playing!");
+//                        valid = true;
+//                    }
+//
+//                    // Ask player if they want to walk away
+//                    boolean walkAway1 = round1.walkAway();
+//                    if (walkAway1) {
+//                        // Player agrees to walk away
+//                        System.out.println("Thanks for playing!");
+//                        valid = true;
+//                    }
+
+                    // Player does not walk away. Play round 2
+                    Round round2 = newGame.newRound();
+                    boolean roundTwoResult = roundOneTwo(newGame, round2, newPlayer);
+                    if (roundTwoResult) {
+                        valid = true;
+                    }
+
+                    // Player does not walk away. Play round 3
+                    Round round3 = newGame.newRound();
+                    boolean roundThreeResult = roundThree(newGame, round3, newPlayer);
+                    if (roundThreeResult) {
+                        valid = true;
+                    }
 
                     valid = true;
-                }
-                else if (launchOption == RULES) {
+                } else if (launchOption == RULES) {
                     displayRules();
                     valid = true;
-                }
-                else if (launchOption == EXIT) {
+                } else if (launchOption == EXIT) {
                     valid = exit();
-                }
-                else {
+                } else {
                     System.out.print("Error: not a valid option. Please select an option: ");
                 }
             } catch (InputMismatchException e) {
@@ -97,7 +128,37 @@ public class MillionaireGameApp {
     }
 
     public static boolean exit() {
-        System.out.print("Thanks for playing!");
+        System.out.print("Thank you for playing Who Wants to Be a Millionaire!");
+        return true;
+    }
+
+    public static boolean roundOneTwo(Game game, Round round, Player player) {
+        boolean roundResult = game.playRound(round);
+        if (roundResult) {
+            System.out.println("Congratulations! You passed round " + round.getRoundNumber() + "! Your current winnings are at $" + player.getTotalWinnings());
+        } else {
+            System.out.println("Thank you for playing Who Wants to Be a Millionaire!");
+            return true;
+        }
+        // Ask player if they want to walk away
+        boolean walkAway = round.walkAway();
+        if (walkAway) {
+            // Player agrees to walk away
+            System.out.println("Thank you for playing Who Wants to Be a Millionaire!");
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean roundThree(Game game, Round round, Player player) {
+        boolean roundResult = game.playRound(round);
+        if (roundResult) {
+            System.out.println("Congratulations! You passed round " + round.getRoundNumber() + "! You won $" + player.getTotalWinnings() + "!");
+            System.out.println("Thank you for playing Who Wants to Be a Millionaire!");
+        } else {
+            System.out.println("Thank you for playing Who Wants to Be a Millionaire!");
+            return true;
+        }
         return true;
     }
 }
