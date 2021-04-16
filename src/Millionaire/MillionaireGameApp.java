@@ -1,5 +1,8 @@
 package Millionaire;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,8 +18,22 @@ public class MillionaireGameApp {
             try {
                 // Ask for launch screen input
                 int launchOption = read.nextInt();
+                read.nextLine();
                 if (launchOption == 1) {
-                    option1();
+                    // Create player
+                    System.out.print("Please enter your name: ");
+                    String name = read.nextLine();
+                    Player newPlayer = new Player(name, 0);
+                    // Create question bank
+                    QuestionBank questionBank = new QuestionBank();
+                    questionBank.readFile("questions.txt");
+                    for (int i = 0; i < questionBank.getQuestions().size(); i++) {
+                        System.out.println(questionBank.getQuestions().get(i));
+                    }
+                    //System.out.println(Arrays.toString(questionBank.getQuestions().toArray()));
+                    //ArrayList<Question> questionBank = new ArrayList<>();
+                    //readFile(questionBank, "questions.txt");
+                    //System.out.println(Arrays.toString(questionBank.toArray()));
                     valid = true;
                 }
                 else if (launchOption == 2) {
@@ -45,10 +62,6 @@ public class MillionaireGameApp {
         System.out.println("  2. View rules");
         System.out.println("  3. Exit");
         System.out.print("Please select an option: ");
-    }
-
-    public static void option1() {
-        System.out.println("Option 1 selected");
     }
 
     public static void option2() {
