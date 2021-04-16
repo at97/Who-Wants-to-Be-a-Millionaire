@@ -29,28 +29,5 @@ public class FiftyFifty extends Lifeline{
         }
         question.getAllAnswers().set(index2, " ");
         return question;
-        /*ArrayList<Integer> intArray = new ArrayList<>();
-        switch (question.getAnswer()) {
-            case 1:
-                intArray.add(2);
-                intArray.add(3);
-                intArray.add(4);
-                break;
-            case 2:
-                intArray.add(1);
-                intArray.add(3);
-                intArray.add(4);
-                break;
-            case 3:
-                intArray.add(1);
-                intArray.add(2);
-                intArray.add(4);
-                break;
-            case 4:
-                intArray.add(1);
-                intArray.add(2);
-                intArray.add(3);
-                break;
-        }*/
     }
 }
