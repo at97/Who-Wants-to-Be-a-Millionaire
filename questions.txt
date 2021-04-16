@@ -1,0 +1,30 @@
+1	1	What does the 'S' stand for in the abbreviation SIM as in SIM card?	Subscriber	Single	Secure	Solid	1
+2	3	Which of these chemical compounds is NOT found in gastric acid?	Hydrochloric acid	Sulfuric acid	Potassium chloride	Sodium chloride	2
+3	1	Who is the lead singer of the British pop rock band Coldplay?	Jonny Buckland	Guy Berryman	Chris Martin	Will Champion	3
+4	2	Which of these programming languages is a low-level language?	Python	C#	Pascal	Assembly	4
+5	1	What is the chemical makeup of water?	H20	C12H6O2	CO2	H	1
+6	1	In the movie "Blade Runner", what is the term used for human-like androids?	Cylons	Replicants	Synthetics	Skinjobs	2
+7	3	The board game 'Monopoly' is a variation of which board game?	Territorial Dispute	Property Feud	The Landlord's Game	The Monopolist's Game	3
+8	2	What event marked the start of World War II?	Invasion of Russia (1942)	Battle of Britain (1940)	Invasion of Normandy (1944)	Invasion of Poland (1939)	4
+9	3	What number does the Roman numeral 'D' stand for?	500	100	1000	50	1
+10	2	What is the name of rocky region that spans most of eastern Canada?	Rocky Mountains	Canadian Shield	Appalachian Mountains	Himalayas	2
+11	2	How many notes are there on a standard grand piano?	98	108	88	78	3
+12	3	Neptune's greek name was...	Ares	Zeus	Apollo	Poseidon	4
+13	1	How many pieces are there on the board at the start of a chess game?	32	16	24	36	1
+14	1	In the Java programming language, which keyword is used to make sure a variable doesn't get modified?	const	final	static	private	2
+15	3	What city is known as the Rose Capital of the World?	San Diego, California	Miami, Florida	Tyler, Texas	Anaheim, California	3
+16	2	What is the capital of Slovakia?	Sofia	Ljubljana	Sarajevo	Bratislava	4
+17	1	Who was the Prime Minister of Japan when Japan declared war on the US?	Hideki Tojo	Michinomiya Hirohito	Isoroku Yamamoto	Fumimaro Konoe	1
+18	2	What is the designation given to the Marvel Cinematic Universe?	Earth-616	Earth-199999	Earth-10005	Earth-2008	2
+19	3	Which of the following cellular device companies is NOT headquartered in Asia?	LG Electronics	Samsung	Nokia	HTC	3
+20	1	What is the unit of electrical resistance?	Mho	Tesla	Joule	Ohm	4
+21	1	Who was the first host of the game show "Who Wants to Be a Millionaire"	Regis Philbin	Alex Trebek	Terry Crews	Tom Bergeron	1
+22	3	Which is not a country in Africa?	Senegal	Guyana	Liberia	Somalia	2
+23	2	Joseph Stalin had a criminal past doing what?	Murder for Hire	Tax evasion	Robbing trains	Identity fraud	3
+24	2	Where was Kanye West born?	Chicago, Illinois	Los Angeles, California	Detroit, Michigan	Atlanta, Georgia	4
+25	1	The longest shared border in the world can be found between which two nations?	Canada and the United States	Chile and Argentina	Russia and China	India and Pakistan	1
+26	2	How old is the universe?	4.5 Billion Years	13.8 Billion Years	7.9 Billion Years	16.2 Billion Years	2
+27	3	Botanically speaking, which of these fruits is NOT a berry?	Blueberries	Bananas	Strawberries	Concord Grapes	3
+28	2	What is the largest non-continental island in the world?	New Guinea	Borneo	Madagascar	Greenland	4
+29	3	Sciophobia is the fear of what?	Shadows	Science	Bright lights	Transportation	1
+30	3	Nephelococcygia is the practice of doing what?	Sleeping with your eyes open	Finding shapes in clouds	Breaking glass with your voice	Swimming in freezing water	2
