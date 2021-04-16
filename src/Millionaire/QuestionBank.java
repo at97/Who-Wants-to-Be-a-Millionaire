@@ -14,6 +14,8 @@ public class QuestionBank {
     }
 
     public ArrayList<Question> getQuestions() {
+        //System.out.println(questions.get(0));
+        //System.out.println(questions.get(0).getAllAnswers().size());
         return questions;
     }
 
@@ -21,15 +23,16 @@ public class QuestionBank {
         this.questions = questions;
     }
 
-    public void readFile(String inputFile) {
+    public ArrayList<Question> readFile(String inputFile) {
         File questionFile = new File(inputFile);
-        ArrayList<String> allAnswers = new ArrayList<>();
+        ArrayList<Question> questionBank = new ArrayList<>();
         try {
             Scanner read = new Scanner(questionFile);
             read.useDelimiter("[\t\n]|\r\n");
 
             // Read data from file line-by-line
             while(read.hasNext()) {
+                ArrayList<String> allAnswers = new ArrayList<>();
                 // Store data from file
                 int questionID = read.nextInt();
                 //System.out.println("Question ID: " + questionID);
@@ -58,10 +61,7 @@ public class QuestionBank {
                 Question newQuestion = new Question(questionID, difficulty, question, allAnswers, answer);
 
                 // Add newQuestion to questionBank
-                questions.add(newQuestion);
-
-                // Clear allAnswers ArrayList
-                allAnswers.clear();
+                questionBank.add(newQuestion);
             }
             read.close();
         } catch (NullPointerException e) {
@@ -69,6 +69,7 @@ public class QuestionBank {
         } catch (FileNotFoundException e) {
             System.out.println("Error: file not found" );
         }
-        //return questions;
+
+        return questionBank;
     }
 }
