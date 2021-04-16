@@ -63,6 +63,7 @@ public class QuestionBank {
                 // Clear allAnswers ArrayList
                 allAnswers.clear();
             }
+            read.close();
         } catch (NullPointerException e) {
             System.out.println("Error: null pointer");
         } catch (FileNotFoundException e) {
