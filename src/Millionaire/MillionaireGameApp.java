@@ -7,10 +7,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MillionaireGameApp {
-    public static void main(String[] args) {
-        // Read user input
-        Scanner read = new Scanner(System.in);
+    private static final int START = 1;
+    private static final int RULES = 2;
+    private static final int EXIT = 3;
+    private static final int EASY_MODE = 1;
+    private static final int HARD_MODE = 2;
+    // Read user input
+    public static final Scanner read = new Scanner(System.in);
 
+    public static void main(String[] args) {
         // Present launch screen
         launchScreen();
         boolean valid = false;
@@ -19,38 +24,39 @@ public class MillionaireGameApp {
                 // Ask for launch screen input
                 int launchOption = read.nextInt();
                 read.nextLine();
-                if (launchOption == 1) {
+
+                if (launchOption == START) {
                     // Create player
                     System.out.print("Please enter your name: ");
                     String name = read.nextLine();
                     Player newPlayer = new Player(name, 0);
+
+                    // Ask for game difficulty
+                    int gameDifficulty = gameDifficulty();
+
                     // Create question bank
                     QuestionBank questionBank = new QuestionBank();
                     questionBank.readFile("questions.txt");
-                    for (int i = 0; i < questionBank.getQuestions().size(); i++) {
-                        System.out.println(questionBank.getQuestions().get(i));
-                    }
-                    //System.out.println(Arrays.toString(questionBank.getQuestions().toArray()));
-                    //ArrayList<Question> questionBank = new ArrayList<>();
-                    //readFile(questionBank, "questions.txt");
-                    //System.out.println(Arrays.toString(questionBank.toArray()));
+
+                    // Create game
+                    Game newGame = new Game(newPlayer, gameDifficulty, questionBank);
+                    newGame.newRound();
+
+
                     valid = true;
                 }
-                else if (launchOption == 2) {
-                    option2();
+                else if (launchOption == RULES) {
+                    displayRules();
                     valid = true;
                 }
-                else if (launchOption == 3) {
-                    option3();
-                    valid = true;
+                else if (launchOption == EXIT) {
+                    valid = exit();
                 }
                 else {
-                    System.out.println("Error: not a valid option");
-                    System.out.print("Please select an option: ");
+                    System.out.print("Error: not a valid option. Please select an option: ");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Error: not a valid input");
-                System.out.print("Please select an option: ");
+                System.out.println("Error: not a valid input. Please select an option: ");
                 read.next();
             }
         }
@@ -64,11 +70,34 @@ public class MillionaireGameApp {
         System.out.print("Please select an option: ");
     }
 
-    public static void option2() {
+    public static int gameDifficulty() {
+        System.out.println("Select your difficulty");
+        System.out.println("  1. Easy mode");
+        System.out.println("  2. Hard mode");
+        System.out.print("Please select an option: ");
+        int difficulty = 0;
+        while (true) {
+            try {
+                difficulty = read.nextInt();
+
+                if (difficulty == EASY_MODE || difficulty == HARD_MODE) {
+                    return difficulty;
+                } else {
+                    System.out.print("Error: not a valid option. Please select an option: ");
+                }
+            } catch (InputMismatchException e) {
+                System.out.print("Error: not a valid input. Please select an option: ");
+                read.next();
+            }
+        }
+    }
+
+    public static void displayRules() {
         System.out.println("Option 2 selected");
     }
 
-    public static void option3() {
-        System.out.println("Option 3 selected");
+    public static boolean exit() {
+        System.out.print("Thanks for playing!");
+        return true;
     }
 }
