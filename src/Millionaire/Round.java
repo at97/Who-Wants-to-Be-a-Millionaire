@@ -84,7 +84,12 @@ public abstract class Round {
                     questions.get(index).setAllAnswers(newQuestion.getAllAnswers());
                     valid = true;
                 }
-                
+                if (lifeline == 2 && !Lifeline.isUsedAudienceLifeline()) {
+                    Audience audienceObj = new Audience();
+                    Lifeline.setUsedAudienceLifeline(true);
+                    Question newQuestion = audienceObj.useLifeline(question);
+                    valid = true;
+                }
             } catch (InputMismatchException e) {
                 System.out.print("Error: not a valid input. ");
                 MillionaireGameApp.read.next();
