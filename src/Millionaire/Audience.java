@@ -26,6 +26,7 @@ public class Audience extends Lifeline {
         // Store remaining values in an arraylist to random assign to variables
         ArrayList<Integer> optionsArray = new ArrayList<>();
         System.out.println("Audience results:");
+        // Generate random results for incorrect answers
         switch (answer) {
             case 1:
                 optionsArray.add(option2);

@@ -1,6 +1,7 @@
 package Millionaire;
 
 public abstract class Lifeline {
+    // Static variables to ensure these lifelines aren't used repeatedly throughout the game
     private static boolean used5050Lifeline;
     private static boolean usedAudienceLifeline;
     private static boolean usedFriendLifeline;
@@ -32,5 +33,6 @@ public abstract class Lifeline {
         Lifeline.usedFriendLifeline = usedFriendLifeline;
     }
 
+    // Abstract class to be defined by subclasses
     public abstract Question useLifeline(Question question);
 }

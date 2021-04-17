@@ -1,7 +1,6 @@
 package Millionaire;
 
 import java.io.File;
-//import java.io.FileNotFoundException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,8 +13,6 @@ public class QuestionBank {
     }
 
     public ArrayList<Question> getQuestions() {
-        //System.out.println(questions.get(0));
-        //System.out.println(questions.get(0).getAllAnswers().size());
         return questions;
     }
 
@@ -28,6 +25,7 @@ public class QuestionBank {
         ArrayList<Question> questionBank = new ArrayList<>();
         try {
             Scanner read = new Scanner(questionFile);
+            // Split CRLF files at tabs and at carriage returns
             read.useDelimiter("[\t\n]|\r\n");
 
             // Read data from file line-by-line
@@ -63,6 +61,7 @@ public class QuestionBank {
                 // Add newQuestion to questionBank
                 questionBank.add(newQuestion);
             }
+            // Close file stream
             read.close();
         } catch (NullPointerException e) {
             System.out.println("Error: null pointer");
